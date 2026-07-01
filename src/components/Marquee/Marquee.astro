@@ -1,0 +1,66 @@
+---
+// src/components/Marquee.astro
+const items = [
+  "Agentic workflows",
+  "LLM fine-tuning",
+  "AI roadmapping",
+  "Answer-engine optimisation",
+  "Computer vision",
+  "Workflow automation",
+  "Technical SEO",
+  "Readiness audits",
+];
+---
+
+<div class="marquee">
+  <div class="marquee__track">
+    <div class="marquee__group">
+      {items.map((kw) => (
+        <span class="marquee__item">{kw}<span class="marquee__diamond">◆</span></span>
+      ))}
+    </div>
+    <div class="marquee__group" aria-hidden="true">
+      {items.map((kw) => (
+        <span class="marquee__item">{kw}<span class="marquee__diamond">◆</span></span>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .marquee {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    background: #0d0d0f;
+  }
+  .marquee__track {
+    display: flex;
+    width: max-content;
+    animation: marquee 34s linear infinite;
+  }
+  .marquee__group {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+  }
+  .marquee__item {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(22px, 2.6vw, 40px);
+    padding: 0 clamp(22px, 2.6vw, 40px);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    letter-spacing: 0.02em;
+    color: #9ca3af;
+    white-space: nowrap;
+  }
+  .marquee__diamond { color: #4f46e5; font-size: 9px; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee__track { animation: none; }
+  }
+</style>

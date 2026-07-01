@@ -1,0 +1,177 @@
+---
+// src/components/Services.astro
+const categories = [
+  {
+    label: "01",
+    title: "AI Strategy",
+    items: [
+      { title: "AI Readiness & Roadmapping", desc: "I audit your digital operations to find high-ROI automation opportunities, then turn findings into prioritized, implementation-ready roadmaps balancing feasibility with commercial outcomes." },
+      { title: "AI Workflow Transformation", desc: "I locate your heaviest operational bottlenecks and deploy secure, automated AI pipelines end-to-end — research, reporting and analysis — to cut manual overhead and scale output." },
+      { title: "AI Enablement & Upskilling", desc: "I embed with your team to bridge the GenAI knowledge gap, helping stakeholders understand LLM capabilities, build internal workflows and confidently deploy AI." },
+      { title: "AI Investment & Business Cases", desc: "I translate AI opportunities into board-ready investment cases and ROI models — helping leadership secure budget, align stakeholders and move from exploration to execution." },
+    ],
+  },
+  {
+    label: "02",
+    title: "AI Engineering",
+    items: [
+      { title: "Agentic AI Workflows", desc: "I build and deploy proprietary agentic systems — automated technical auditing, lead generation and more — designed to dramatically reduce operational overhead and manual hours." },
+      { title: "SLM & LLM Fine-tuning", desc: "I develop bespoke Small Language Models and fine-tune Vision Language Models on your specific business data, ensuring high performance and strict data security." },
+      { title: "Custom AI Web Architecture", desc: "End-to-end full-stack development with AI built into the foundation — custom, SEO-compliant web apps and e-commerce platforms with machine learning baked in from day one." },
+      { title: "VLM & Computer Vision Pipelines", desc: "I design automated vision pipelines for image classification, tagging and visual data processing — reducing manual workflows and enabling AI-powered visual search at scale." },
+    ],
+  },
+  {
+    label: "03",
+    title: "Marketing",
+    items: [
+      { title: "AEO & Answer Engine Optimisation", desc: "Ensure your brand is trusted, cited and recommended by GenAI search engines. I transform traditional content and technical SEO to win visibility in LLM-driven search." },
+      { title: "Technical SEO & Migration", desc: "Safeguard organic visibility during complex platform changes. I architect search-first infrastructures, manage multilingual deployments and ensure technical compliance for global brands." },
+      { title: "AI-Powered Content Systems", desc: "Deploy GenAI for content without algorithmic penalties — strict, quality-controlled workflows that hold brand voice, ensure factual accuracy and meet technical SEO standards at scale." },
+      { title: "AI-Augmented Marketing Strategy", desc: "Move beyond historical analytics. I use applied ML and NLP to analyze search trends, market data and user behavior — turning raw data into predictive, actionable strategy." },
+    ],
+  },
+];
+---
+
+<section id="services" class="svc" data-screen-label="Services">
+  <div class="svc__inner">
+    <div class="svc__label">
+      <span class="svc__rule"></span>
+      <span>// what_i_do</span>
+    </div>
+
+    <div class="svc__grid">
+      <aside class="svc__rail">
+        <a href="#contact" class="svc__cta">Work with me <span>↗</span></a>
+        <p class="svc__rail-note">Have an AI problem worth solving?</p>
+      </aside>
+
+      <div class="svc__list">
+        {categories.map((cat, i) => (
+          <div class="svc__cat">
+            <button class="svc__head" aria-expanded={i === 0 ? "true" : "false"} aria-controls={`svc-panel-${i}`}>
+              <span class="svc__head-left">
+                <span class="svc__num">{cat.label}</span>
+                <span class="svc__title">{cat.title}</span>
+              </span>
+              <span class="svc__chevron" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </button>
+
+            <div class="svc__panel" id={`svc-panel-${i}`} hidden={i !== 0}>
+              {cat.items.map((item) => (
+                <a href="#contact" class="svc__item">
+                  <span class="svc__item-main">
+                    <span class="svc__item-title">{item.title}</span>
+                    <span class="svc__item-desc">{item.desc}</span>
+                  </span>
+                  <span class="svc__item-arrow" aria-hidden="true">↗</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .svc {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0a0a0b;
+    color: #f5f5f5;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+  .svc__inner { max-width: 1440px; margin: 0 auto; padding: clamp(48px, 6vw, 88px) clamp(20px, 4vw, 64px); }
+
+  .svc__label { display: flex; align-items: center; gap: 14px; margin-bottom: clamp(36px, 5vw, 56px); font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #a3a3a3; }
+  .svc__rule { width: 30px; height: 1px; background: rgba(255, 255, 255, 0.35); }
+
+  .svc__grid { display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 72px); align-items: flex-start; }
+
+  .svc__rail {
+    display:none;
+  }
+ 
+
+   @media (min-width: 859px) {
+    .svc__rail {
+        flex: 0 0 auto;
+        width: 300px;
+        max-width: 100%;
+        position: sticky;
+        top: 88px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+  }
+    }
+
+  .svc__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;                 /* was 24px + space-between; tighter now it's auto-width */
+    align-self: flex-start;    /* don't stretch */
+    padding: 18px 28px;
+    background: #4f46e5; color: #fff; text-decoration: none; border-radius: 100px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.18s;
+  }
+  .svc__cta:hover { background: #4338ca; transform: translateY(-2px); }
+  .svc__rail-note { font-family: 'Newsreader', serif; font-size: 20px; line-height: 1.45; color: #9ca3af; margin: 28px 4px 0; }
+
+  .svc__list { flex: 1 1 560px; min-width: 340px; border-bottom: 1px solid rgba(255, 255, 255, 0.16); }
+  .svc__cat { border-top: 1px solid rgba(255, 255, 255, 0.16); }
+
+  .svc__head {
+    width: 100%; background: none; border: 0; cursor: pointer; color: inherit; text-align: left;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    padding: clamp(26px, 3vw, 42px) 0;
+  }
+  .svc__head-left { display: flex; align-items: baseline; gap: 18px; min-width: 0; }
+  .svc__num { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #6b7280; flex-shrink: 0; }
+  .svc__title { font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(30px, 4.4vw, 60px); line-height: 1; letter-spacing: -0.025em; }
+
+  .svc__chevron {
+    flex-shrink: 0; width: clamp(46px, 5vw, 64px); height: clamp(46px, 5vw, 64px);
+    border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center; color: #9ca3af;
+    transition: all 0.18s;
+  }
+  .svc__head:hover .svc__chevron { border-color: #f5f5f5; background: rgba(255, 255, 255, 0.06); }
+  .svc__head[aria-expanded="true"] .svc__chevron { transform: rotate(180deg); color: #f5f5f5; }
+
+  .svc__panel { padding-bottom: clamp(16px, 2vw, 32px); }
+  .svc__panel[hidden] { display: none; }
+
+  .svc__item { display: flex; gap: clamp(16px, 3vw, 40px); align-items: flex-start; padding: clamp(22px, 2.6vw, 32px) 0; border-top: 1px solid rgba(255, 255, 255, 0.09); text-decoration: none; color: inherit; transition: opacity 0.18s; }
+  .svc__item:hover { opacity: 0.62; }
+  .svc__item-main { flex: 1 1 auto; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(8px, 2vw, 48px); align-items: start; }
+  .svc__item-title { font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(21px, 2.2vw, 28px); line-height: 1.1; letter-spacing: -0.015em; color: #f5f5f5; }
+  .svc__item-desc { font-size: clamp(14.5px, 1.1vw, 16px); line-height: 1.6; color: #9ca3af; }
+  .svc__item-arrow { flex-shrink: 0; font-family: 'IBM Plex Mono', monospace; font-size: 18px; color: #6b7280; padding-top: 4px; }
+</style>
+
+<script>
+  // Single-open accordion; matches the DC behaviour (first category open by default).
+  document.querySelectorAll('.svc').forEach((svc) => {
+    const heads = [...svc.querySelectorAll('.svc__head')];
+    heads.forEach((head) => {
+      head.addEventListener('click', () => {
+        const wasOpen = head.getAttribute('aria-expanded') === 'true';
+        heads.forEach((h) => {
+          h.setAttribute('aria-expanded', 'false');
+          const p = svc.querySelector('#' + h.getAttribute('aria-controls'));
+          if (p) p.hidden = true;
+        });
+        if (!wasOpen) {
+          head.setAttribute('aria-expanded', 'true');
+          svc.querySelector('#' + head.getAttribute('aria-controls')).hidden = false;
+        }
+      });
+    });
+  });
+</script>
