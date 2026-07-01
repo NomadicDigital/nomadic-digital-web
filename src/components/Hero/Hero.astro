@@ -1,0 +1,235 @@
+<section id="top" class="nd-hero" data-screen-label="Hero">
+  <!-- technical grid -->
+  <div class="nd-hero__grid"></div>
+  <!-- indigo glow -->
+  <div class="nd-hero__glow"></div>
+
+  <div class="nd-hero__inner">
+    <!-- eyebrow -->
+    <div class="nd-hero__eyebrow">
+      <span class="nd-hero__dot"></span>
+      <span>AI strategy, engineering and marketing</span>
+    </div>
+
+    <!-- headline -->
+    <h1 class="nd-hero__title">
+      AI is moving faster than<br class="nd-hero__break" /> your strategy. <span class="nd-hero__italic">I fix that.</span>
+    </h1>
+
+    <!-- lower row: intro + CTA -->
+    <div class="nd-hero__row">
+      <p class="nd-hero__intro">
+        I'm Matt Hall. I help ambitious businesses lead the AI transition from strategy to execution. Over the past decade I've built startups, consulted for global brands at Razorfish, and developed the strategic and technical depth to actually deliver AI transformation.
+      </p>
+      <div class="nd-hero__cta-wrap">
+        <a href="#contact" class="nd-hero__cta">let's_talk <span>→</span></a>
+        <span class="nd-hero__note">Free 30-min scoping call · no pitch</span>
+      </div>
+    </div>
+  </div>
+  <div class="nd-hero__meta">
+    <div class="nd-hero__meta-inner">
+      <div class="nd-hero__index">
+        <span><span class="nd-hero__index-num">01</span> Strategy &amp; Roadmapping</span>
+        <span><span class="nd-hero__index-num">02</span> AI Engineering</span>
+        <span><span class="nd-hero__index-num">03</span> Marketing &amp; AEO</span>
+      </div>
+      <a href="#experience" class="nd-hero__scroll">
+        <span>scroll</span>
+        <span class="nd-hero__scroll-cue">↓</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .nd-hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0a0a0b;
+    color: #f5f5f5;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .nd-hero__grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 62px 62px;
+    -webkit-mask-image: radial-gradient(120% 90% at 78% 8%, #000 0%, transparent 70%);
+    mask-image: radial-gradient(120% 90% at 78% 8%, #000 0%, transparent 70%);
+  }
+
+  .nd-hero__glow {
+    position: absolute;
+    top: -220px;
+    right: -140px;
+    width: 640px;
+    height: 640px;
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.26), transparent 64%);
+    pointer-events: none;
+    animation: glowPulse 8s ease-in-out infinite;
+  }
+
+  .nd-hero__inner {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: clamp(48px, 6vw, 96px) clamp(20px, 4vw, 64px) clamp(40px, 4.5vw, 64px);
+  }
+
+  .nd-hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: clamp(28px, 3.5vw, 48px);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: #a3a3a3;
+  }
+  .nd-hero__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #6366f1;
+    box-shadow: 0 0 12px #6366f1;
+  }
+
+  .nd-hero__title {
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    font-size: clamp(46px, 6.4vw, 96px);   /* cap lowered 112 → 96 so 2 lines fit wide */
+    line-height: 0.99;
+    letter-spacing: -0.025em;
+    margin: 0;
+    max-width: 20ch;
+  }
+    .nd-hero__italic { font-style: italic; font-weight: 500; }
+
+    /* desktop: force the two-line break */
+    .nd-hero__break { display: inline; }
+
+    /* mobile: drop the forced break, let it wrap naturally to 3 lines */
+    @media (max-width: 859px) {
+        .nd-hero__break { display: none; }
+    }
+
+  .nd-hero__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(32px, 5vw, 80px);
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: clamp(40px, 5vw, 72px);
+  }
+  .nd-hero__intro {
+    flex: 1 1 420px;
+    min-width: 0;
+    max-width: 640px;
+    margin: 0;
+    font-family: 'Newsreader', serif;
+    font-size: clamp(17px, 1.5vw, 22px);
+    line-height: 1.55;
+    color: #c4c4c4;
+  }
+
+  /* CTA — right-gutter aligned on desktop */
+  .nd-hero__cta-wrap {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+  }
+  .nd-hero__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    padding: 18px 30px;
+    background: #4f46e5;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.18s;
+  }
+  .nd-hero__cta:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+  }
+  .nd-hero__note {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #6b7280;
+    padding-right: 2px;
+  }
+
+  /* Mobile — full-width CTA bar, left-aligned with the text */
+  @media (max-width: 859px) {
+    .nd-hero__cta-wrap {
+      width: 100%;
+      align-items: stretch;
+    }
+    .nd-hero__cta {
+      justify-content: space-between;
+    }
+    .nd-hero__note {
+      padding-right: 0;
+    }
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nd-hero__glow { animation: none; }
+  }
+    .nd-hero__meta {
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .nd-hero__meta-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 18px clamp(20px, 4vw, 64px);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #6b7280;
+  }
+  .nd-hero__index {
+    display: flex;
+    gap: clamp(18px, 3vw, 44px);
+    flex-wrap: wrap;
+  }
+  .nd-hero__index-num { color: #a3a3a3; margin-right: 6px; }
+
+  .nd-hero__scroll {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #6b7280;
+    text-decoration: none;
+  }
+  .nd-hero__scroll-cue {
+    display: inline-block;
+    animation: scrollCue 1.6s ease-in-out infinite;
+  }
+
+  @keyframes scrollCue {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(6px); opacity: 1; }
+  }
+</style>
