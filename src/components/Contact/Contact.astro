@@ -1,0 +1,154 @@
+<section id="contact" class="ct" data-screen-label="Contact">
+  <div class="ct__inner">
+    <div class="ct__label">
+      <span class="ct__rule"></span>
+      <span>// let's_build</span>
+    </div>
+
+    <div class="ct__grid">
+      <!-- left: pitch + details -->
+      <div class="ct__pitch">
+        <h2 class="ct__title">Have an AI problem worth solving?</h2>
+        <p class="ct__lede">Tell me where you're stuck. I'll come back with a clear read on whether — and how — AI moves the needle for you.</p>
+        <div class="ct__details">
+          <a href="mailto:matt@nomadicdigital.co.uk" class="ct__detail"><span class="ct__detail-key">email</span> matt@nomadicdigital.co.uk</a>
+          <a href="https://www.linkedin.com/in/matt-hall-ai-engineer-strategy-marketing/" class="ct__detail"><span class="ct__detail-key">linkedin</span> /in/matthall</a>
+          <div class="ct__detail ct__detail--static"><span class="ct__detail-key">based</span> UK · working globally</div>
+        </div>
+      </div>
+
+      <!-- right: form / thank-you -->
+      <div class="ct__form-wrap">
+        <form
+          class="ct__form"
+          data-contact-form
+          action="https://formspree.io/f/meebrevk"
+          method="POST"
+        >
+          <div class="ct__row">
+            <label class="ct__field">
+              <span class="ct__field-label">name</span>
+              <input class="ct__input" type="text" name="name" required placeholder="Jane Doe" />
+            </label>
+            <label class="ct__field">
+              <span class="ct__field-label">email</span>
+              <input class="ct__input" type="email" name="email" required placeholder="jane@company.com" />
+            </label>
+          </div>
+          <label class="ct__field">
+            <span class="ct__field-label">company</span>
+            <input class="ct__input" type="text" name="company" placeholder="Company / team (optional)" />
+          </label>
+          <label class="ct__field">
+            <span class="ct__field-label">what are you trying to solve?</span>
+            <textarea class="ct__input ct__textarea" name="message" required rows="4" placeholder="A few lines on the problem, your stack, and timelines…"></textarea>
+          </label>
+          <p class="ct__error" data-contact-error hidden></p>
+          <button class="ct__submit" type="submit">send_message <span>→</span></button>
+        </form>
+
+        <div class="ct__thanks" data-contact-thanks hidden>
+          <span class="ct__check">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <h3 class="ct__thanks-title">Thanks, <span data-contact-name>there</span> — message received.</h3>
+          <p class="ct__thanks-copy">I read every enquiry personally and reply within two business days. Talk soon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ct { border-bottom: 1px solid rgba(255, 255, 255, 0.1); background: #0a0a0b; color: #f5f5f5; font-family: 'IBM Plex Sans', sans-serif; }
+  .ct__inner { max-width: 1440px; margin: 0 auto; padding: clamp(56px, 7vw, 104px) clamp(20px, 4vw, 64px); }
+
+  .ct__label { display: flex; align-items: center; gap: 14px; margin-bottom: clamp(28px, 3.5vw, 44px); font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #a3a3a3; }
+  .ct__rule { width: 30px; height: 1px; background: rgba(255, 255, 255, 0.35); }
+
+  .ct__grid { display: flex; flex-wrap: wrap; gap: clamp(40px, 6vw, 88px); align-items: flex-start; }
+  .ct__pitch { flex: 1 1 380px; min-width: 0; }
+  .ct__title { font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(40px, 6vw, 84px); line-height: 0.98; letter-spacing: -0.03em; margin: 0 0 28px; }
+  .ct__lede { font-family: 'Newsreader', serif; font-size: clamp(17px, 1.6vw, 21px); line-height: 1.55; color: #c4c4c4; margin: 0 0 40px; max-width: 480px; }
+
+  .ct__details { display: flex; flex-direction: column; gap: 18px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; }
+  .ct__detail { display: flex; align-items: center; gap: 12px; color: #f5f5f5; text-decoration: none; transition: color 0.18s; }
+  .ct__detail:hover { color: #818cf8; }
+  .ct__detail--static { color: #a3a3a3; }
+  .ct__detail--static:hover { color: #a3a3a3; }
+  .ct__detail-key { color: #6b7280; }
+
+  .ct__form-wrap { flex: 1 1 420px; min-width: 0; }
+  .ct__form { display: flex; flex-direction: column; gap: 22px; }
+  .ct__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 22px; }
+  .ct__field { display: flex; flex-direction: column; gap: 9px; }
+  .ct__field-label { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.04em; color: #9ca3af; }
+  .ct__input {
+    background: transparent; border: none; border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    color: #f5f5f5; font-size: 16px; padding: 10px 2px; outline: none;
+    transition: border-color 0.18s; font-family: 'IBM Plex Sans', sans-serif;
+  }
+  .ct__input::placeholder { color: #6b7280; }
+  .ct__input:focus { border-bottom-color: #4f46e5; }
+  .ct__textarea { resize: vertical; }
+
+  .ct__submit {
+    margin-top: 8px; align-self: flex-start; display: inline-flex; align-items: center; gap: 14px;
+    padding: 17px 32px; background: #4f46e5; color: #fff; border: none; cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500; transition: all 0.18s;
+  }
+  .ct__submit:hover { background: #4338ca; transform: translateY(-2px); }
+  .ct__submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+  .ct__error { color: #f87171; font-size: 14px; margin: -6px 0 0; }
+  .ct__error[hidden] { display: none; }
+
+  .ct__thanks { border: 1px solid rgba(129, 140, 248, 0.4); background: rgba(79, 70, 229, 0.08); padding: clamp(32px, 4vw, 48px); display: flex; flex-direction: column; gap: 14px; }
+  .ct__thanks[hidden] { display: none; }
+  .ct__check { width: 46px; height: 46px; border-radius: 50%; background: #4f46e5; display: inline-flex; align-items: center; justify-content: center; }
+  .ct__thanks-title { font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(26px, 3vw, 36px); letter-spacing: -0.02em; margin: 8px 0 0; }
+  .ct__thanks-copy { font-size: 16px; line-height: 1.6; color: #9ca3af; margin: 0; max-width: 420px; }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('[data-contact-form]').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const wrap = form.closest('.ct__form-wrap');
+      const thanks = wrap.querySelector('[data-contact-thanks]');
+      const nameSlot = thanks.querySelector('[data-contact-name]');
+      const errorEl = form.querySelector('[data-contact-error]');
+      const submitBtn = form.querySelector('.ct__submit');
+      const first = (form.elements.name.value || '').trim().split(' ')[0] || 'there';
+
+      errorEl.hidden = true;
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (response.ok) {
+          nameSlot.textContent = first;
+          form.hidden = true;
+          thanks.hidden = false;
+        } else {
+          const data = await response.json().catch(() => null);
+          errorEl.textContent =
+            data?.errors?.map((err) => err.message).join(', ') ||
+            'Something went wrong sending your message — please try again or email me directly.';
+          errorEl.hidden = false;
+        }
+      } catch {
+        errorEl.textContent = 'Something went wrong sending your message — please try again or email me directly.';
+        errorEl.hidden = false;
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  });
+</script>
