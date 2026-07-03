@@ -1,0 +1,88 @@
+---
+// src/components/Experience.astro
+// Logo PNGs go in: public/logos/ (download them from the card in chat)
+const groups = [
+  {
+    tag: "ENTERPRISE",
+    via: "VIA RAZORFISH",
+    note: "Enterprise digital transformation delivered on Razorfish consulting teams.",
+    logos: [
+      { src: "/logos/michelin.png", alt: "Michelin", h: 19 },
+      { src: "/logos/aviva.png",    alt: "Aviva",    h: 24 },
+      { src: "/logos/unilever.png", alt: "Unilever", h: 30 },
+      { src: "/logos/dhl.png",      alt: "DHL",      h: 22 },
+    ],
+  },
+  {
+    tag: "INDEPENDENT",
+    via: "NOMADIC DIGITAL",
+    note: "AI engagements delivered directly, from strategy-only projects to full production builds.",
+    logos: [
+      { src: "/logos/bbcmaestro.png",  alt: "BBC Maestro",  h: 21 },
+      { src: "/logos/resi.png",        alt: "resi",         h: 27 },
+      { src: "/logos/streetgarms.png", alt: "Street Garms", h: 18 },
+      { src: "/logos/roku.png",        alt: "Roku",         h: 26 },
+    ],
+  },
+];
+---
+
+<section id="experience" class="xp" data-screen-label="Experience">
+  <div class="xp__inner">
+    <div class="xp__label">
+      <span class="xp__rule"></span>
+      <span>// experience</span>
+    </div>
+
+    <div class="xp__head">
+      <h2 class="xp__title">My experience</h2>
+      <p class="xp__lede">I've delivered digital and AI projects for start-ups and global brands alike, within leading agencies and on my own.</p>
+    </div>
+    <div class="xp__grid">
+      {groups.map((g) => (
+        <div class="xp__panel">
+          <div class="xp__meta">
+            <span class="xp__tag">{g.tag}</span>
+            <span class="xp__sep"></span>
+            <span class="xp__via">{g.via}</span>
+          </div>
+          <p class="xp__note">{g.note}</p>
+          <div class="xp__logos">
+            {g.logos.map((logo) => (
+              <img src={logo.src} alt={logo.alt} style={`height:${logo.h}px;`} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .xp { border-bottom: 1px solid rgba(255, 255, 255, 0.1); background: #0a0a0b; color: #f5f5f5; font-family: 'IBM Plex Sans', sans-serif; }
+  .xp__inner { max-width: 1440px; margin: 0 auto; padding: clamp(48px, 6vw, 88px) clamp(20px, 4vw, 64px); }
+
+  .xp__label { display: flex; align-items: center; gap: 14px; margin-bottom: clamp(28px, 3.5vw, 44px); font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.04em; color: #a3a3a3; }
+  .xp__rule { width: 30px; height: 1px; background: rgba(255, 255, 255, 0.35); }
+
+  .xp__head { display: flex; flex-wrap: wrap; gap: clamp(20px, 4vw, 56px); align-items: flex-end; margin-bottom: clamp(32px, 4vw, 52px); }
+  .xp__title { font-family: 'Newsreader', serif; font-weight: 600; font-size: clamp(34px, 4.6vw, 60px); line-height: 1.0; letter-spacing: -0.025em; margin: 0; flex: 0 0 auto; }
+  .xp__lede { font-family: 'Newsreader', serif; font-size: clamp(16px, 1.5vw, 20px); line-height: 1.5; color: #c4c4c4; margin: 0 0 6px; max-width: 440px; flex: 1 1 320px; }
+
+  .xp__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.14); }
+  .xp__panel { background: #0a0a0b; padding: clamp(28px, 3vw, 44px); }
+
+  .xp__meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em; }
+  .xp__tag { color: #818cf8; }
+  .xp__via { color: #6b7280; }
+  .xp__sep { width: 5px; height: 5px; border-radius: 50%; background: #3f3f46; }
+  .xp__note { font-size: 15px; line-height: 1.55; color: #9ca3af; margin: 0 0 36px; max-width: 380px; }
+
+  /* 2×2 logo grid, aligned + vertically centered per cell */
+  .xp__logos { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 32px; align-items: center; justify-items: start; max-width: 340px; }
+  .xp__logos img { width: auto; display: block; opacity: 0.9; }
+
+  .xp__cta-wrap { margin-top: clamp(32px, 4vw, 52px); }
+  .xp__cta { display: inline-flex; align-items: center; gap: 14px; padding: 16px 30px; border: 1px solid rgba(255, 255, 255, 0.35); color: #f5f5f5; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500; transition: all 0.18s; }
+  .xp__cta:hover { background: #f5f5f5; color: #0a0a0b; border-color: #f5f5f5; }
+</style>
